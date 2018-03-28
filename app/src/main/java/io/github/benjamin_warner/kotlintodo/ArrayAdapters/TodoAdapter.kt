@@ -20,21 +20,21 @@ class TodoAdapter(context: Context?, resource: Int, todos: ArrayList<String>) : 
         if(convertView == null){
             val layoutInflater = LayoutInflater.from(context)
             view = layoutInflater.inflate(R.layout.todo_list_item, parent, false)
-
-            val todoText = view.findViewById(R.id.todo_text) as TextView
-            todoText.text = item
-
-            view.findViewById(R.id.remove_todo).setOnClickListener{ removeToDo(position) }
         }
         else{
             view = convertView
         }
 
+        val todoText = view?.findViewById(R.id.todo_text) as TextView
+        todoText.text = item
+
+        view.findViewById(R.id.remove_todo).setOnClickListener{ removeToDo(item) }
+
         return view
     }
 
-    private fun removeToDo(position: Int) {
-        todos.removeAt(position)
+    private fun removeToDo(item: String) {
+        todos.remove(item)
         notifyDataSetChanged()
     }
 
