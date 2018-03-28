@@ -27,6 +27,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun addNewToDo() {
         todoAdapter.addToDo(newTodoEditText.text.toString())
-        todoAdapter.notifyDataSetChanged()
+        newTodoEditText.text.clear()
     }
 }

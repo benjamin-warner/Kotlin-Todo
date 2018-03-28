@@ -35,9 +35,11 @@ class TodoAdapter(context: Context?, resource: Int, todos: ArrayList<String>) : 
 
     private fun removeToDo(position: Int) {
         todos.removeAt(position)
+        notifyDataSetChanged()
     }
 
     fun addToDo(text: String){
         todos.add(text)
+        notifyDataSetChanged()
     }
 }
